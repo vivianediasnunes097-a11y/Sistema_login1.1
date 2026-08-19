@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/dados_mock.dart';
+import 'home.page.dart';
 
 class LoginPage extends StatefulWidget{
   const LoginPage({super.key});
@@ -41,9 +42,15 @@ class _LoginPageState extends State<LoginPage>{
       mostrarMensagem('Email ou senha incorreta');
       return;
     }
+
+    String nome = usuarioEncontrado['nome'] ?? 'Usuário';
+
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => HomePage(),
+      MaterialPageRoute(builder: (context) => HomePage(
+        nomeUsuario: nome,
+        emailUsuario: email,
+      ),
       
       )
     );
